@@ -1,6 +1,8 @@
 # The-Infinis-Mall.github.io
 This is our official website for Assignment 1: The Infinis Mall. This website is currently compatible with 3 different devices: Laptop/PC, ipad Pro and iphone X.
 
+LẤY MẤY FILE MỚI VỀ LÀM ASM 3
+
 Link: https://khiemmin2002.github.io/The-Infinis-Mall.github.io/
 
 Apple Logo img https://www.48hourslogo.com/48hourslogo_data/2018/07/11/AppleLogo1531264192.png
