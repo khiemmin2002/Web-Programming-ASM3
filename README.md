@@ -4,10 +4,10 @@ This is our official website for Assignment 1: The Infinis Mall. This website is
 LẤY MẤY FILE MỚI VỀ LÀM ASM 3
 
 PHP
-Khiêm: PHP 0,1,2
+Khiêm: PHP00, PHP01, PHP02
 Khánh:
 Nam:
-Phúc:
+Phúc: PHP04, PHP05
 
 Link: https://khiemmin2002.github.io/The-Infinis-Mall.github.io/
 
