@@ -4,12 +4,10 @@ This is our official website for Assignment 1: The Infinis Mall. This website is
 LẤY MẤY FILE MỚI VỀ LÀM ASM 3
 
 PHP
-Khiêm: PHP00, PHP01, PHP02, alo
-Khánh:
-Nam:
+Khiêm: PHP00, PHP01, PHP02
+Khánh: PHP03
+Nam: PHP07, PHP08
 Phúc: PHP04, PHP05
-
-Link: https://khiemmin2002.github.io/Web-Programming-ASM3/
 
 Apple Logo img https://www.48hourslogo.com/48hourslogo_data/2018/07/11/AppleLogo1531264192.png
 
