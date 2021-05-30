@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 
@@ -11,6 +10,8 @@ $stores = read_all_stores();
 $count = 0;
 $count2 = 0;
 ?>
+
+<!DOCTYPE html>
 <html lang="en-VN">
 
 <head>
@@ -45,7 +46,7 @@ $count2 = 0;
             </div>
             <!--Top Header-->
             <nav class="main-menu">
-                <a href="index.php" class="active">
+                <a href="../" class="active">
                     <i class="fas fa-home"></i>
                 </a>
                 <div class="dropdown">
@@ -98,7 +99,7 @@ $count2 = 0;
                     </label>
                     <div class="sub-menu">
                         <a class="empty">Empty</a>
-                        <a class="active" href="index.php">Home</a>
+                        <a class="active" href="../">Home</a>
                         <div class="drop">
                             <a href="javascript:void(0)">Browse By</a>
                             <div class="items">
