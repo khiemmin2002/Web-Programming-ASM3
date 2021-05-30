@@ -1,10 +1,13 @@
 # The-Infinis-Mall.github.io
 This is our official website for Assignment 1: The Infinis Mall. This website is currently compatible with 3 different devices: Laptop/PC, ipad Pro and iphone X.
 
-LẤY MẤY FILE MỚI VỀ LÀM ASM 3
+IMPORTANT NOTES FOR LECTURER/GRADER (This is to make sure that you can test out all features correctly:
++ Our document root is the Web-Programming-ASM3 folder, so when you test our website for grading purposes, make sure to change directory on your terminal to the Web-Programming-ASM3 folder before starting a localhost server;
++ Before gaining access to the admin pages, you must first create an admin account (the install.php file). Just typt in your localhost address followed by /install.php (for example: localhost:8000/install.php)
++ For admin users: To access the admin features, you just need to add a /admin after the localhost address (for example: localhost:8000/admin). If you are logged in already, this should take you straight to the dashboard. Otherwise, it will redirect you to the admin-login.php page first.
 
 PHP
-Khiêm: PHP00, PHP01, PHP02
+Khiêm: PHP00, PHP01
 Khánh: PHP03
 Nam: PHP07, PHP08
 Phúc: PHP04, PHP05
