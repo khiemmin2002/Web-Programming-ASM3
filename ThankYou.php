@@ -28,7 +28,7 @@
               Having trouble? <a href="Contact.php">Contact us</a>
             </p>
             <p class="lead">
-              <a class="btn btn-primary btn-sm" href="index.php" role="button">Return to home page</a>
+              <a class="btn btn-primary btn-sm" href="../" role="button">Return to home page</a>
             </p>
           </div>
     </body>

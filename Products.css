@@ -1,26 +1,26 @@
 @font-face {
     font-family: "Poppins";
-    src: url(Fonts/Poppins-Bold.ttf);
+    src: url(fonts/Poppins-Bold.ttf);
 }
 
 @font-face {
     font-family: "PoppinsReg";
-    src: url(Fonts/Poppins-Regular.ttf);
+    src: url(fonts/Poppins-Regular.ttf);
 }
 
 @font-face {
     font-family: "PoppinsMed";
-    src: url(Fonts/Poppins-Light.ttf);
+    src: url(fonts/Poppins-Light.ttf);
 }
 
 @font-face {
     font-family: "PoppinsLightBold";
-    src: url(Fonts/Poppins-SemiBold.ttf);
+    src: url(fonts/Poppins-SemiBold.ttf);
 }
 
 @font-face {
     font-family: "Lobster";
-    src: url(Fonts/Lobster-Regular.ttf);
+    src: url(fonts/Lobster-Regular.ttf);
 }
 
 * {

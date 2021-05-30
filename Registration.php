@@ -10,7 +10,7 @@
     <meta property="og:url" content="#">
     <meta property="og:image" content="#">
     <meta property="og:description" content="#">
-    <link rel="stylesheet" href="Registration.css">
+    <link rel="stylesheet" type="text/css" href="Registration.css">
     <script src="https://kit.fontawesome.com/5143a5dc4e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
               </div><!--Search-->
           </div><!--Top Header-->
           <nav class="main-menu">
-            <a href="index.php">
+            <a href="../">
                 <i class="fas fa-home"></i>
             </a>
             <div class="dropdown">
@@ -70,7 +70,7 @@
                 </label>
                 <div class="sub-menu">
                     <a class="empty">Empty</a>
-                    <a href="index.php">Home</a>
+                    <a href="../">Home</a>
                     <div class="drop">
                         <a href="javascript:void(0)">Browse By</a>
                         <div class="items">
