@@ -11,7 +11,7 @@
         <meta property="og:url" content="#">
         <meta property="og:image" content="#">
         <meta property="og:description" content="#">
-        <link rel="stylesheet" href="Contact.css">
+        <link rel="stylesheet" type="text/css" href="Contact.css">
         <script src="https://kit.fontawesome.com/5143a5dc4e.js" crossorigin="anonymous"></script>
         <link href="libs/toastr/build/toastr.min.css" rel="stylesheet" />
 	</head>
@@ -30,7 +30,7 @@
                     </div><!--Search-->
                 </div><!--Top Header-->
                 <nav class="main-menu">
-                    <a href="index.php">
+                    <a href="../">
                         <i class="fas fa-home"></i>
                     </a>
                     <div class="dropdown">
@@ -80,7 +80,7 @@
                         </label>
                         <div class="sub-menu">
                             <a class="empty">Empty</a>
-                            <a href="index.php">Home</a>
+                            <a href="../">Home</a>
                             <div class="drop">
                                 <a href="javascript:void(0)">Browse By</a>
                                 <div class="items">

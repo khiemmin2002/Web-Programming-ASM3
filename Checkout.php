@@ -33,7 +33,7 @@
             </div>
             <!--Top Header-->
             <nav class="main-menu">
-                <a href="index.php">
+                <a href="../">
                     <i class="fas fa-home"></i>
                 </a>
                 <div class="dropdown">
@@ -86,7 +86,7 @@
                     </label>
                     <div class="sub-menu">
                         <a class="empty">Empty</a>
-                        <a href="index.php">Home</a>
+                        <a href="../">Home</a>
                         <div class="drop">
                             <a href="javascript:void(0)">Browse By</a>
                             <div class="items">
