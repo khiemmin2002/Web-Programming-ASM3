@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+require 'product_functions.php';
+require 'store_functions.php';
+
+$products = read_all_products();
+$stores = read_all_stores();
+
+$count = 0;
+$count2 = 0;
+?>
 <html lang="en-VN">
 
 <head>
@@ -119,73 +131,39 @@
         <div class="main">
             <div class="featured">
                 <h1>featured stores</h1>
-            </div>
+            </div> 
             <div class="featured-stores">
-                <div class="store">
-                    <img class="brand" src="images/apple.png">
-                    <div class="overlay">
-                        <a href="Apple.php">Visit now!</a>
-                    </div>
-                </div>
-                <div class="store">
-                    <img class="brand" src="images/leicester.jpg">
-                    <div class="overlay">
-                        <a href="Apple.php">Visit now!</a>
-                    </div>
-                </div>
-                <div class="store">
-                    <img class="brand" src="images/balenciaga.jpg">
-                    <div class="overlay">
-                        <a href="Apple.php">Visit now!</a>
-                    </div>
-                </div>
-                <div class="store">
-                    <img class="brand" src="images/NBA.jpg">
-                    <div class="overlay">
-                        <a href="Apple.php">Visit now!</a>
-                    </div>
-                </div>
-                <div class="store">
-                    <img class="brand" src="images/hublot.jpeg">
-                    <div class="overlay">
-                        <a href="Apple.php">Visit now!</a>
-                    </div>
-                </div>
+                <?php
+                    foreach ($stores as $s) {
+                        $id = $s['id'];
+                        $name = $s['name'];
+                        echo '<div class="store">';
+                        echo "<li><a href=\"store.php?id=$id\">$name</a></li>";
+                        echo '</div>';
+                        $count2++;
+                        if ($count2 == 10) {
+                        break;
+                        }
+                    }
+                ?>
             </div>
             <div class="featured">
                 <h1>featured products</h1>
             </div>
             <div class="featured-products">
-                <div class="store">
-                    <img class="brand" src="images/ip-12-pro-max.jpg">
-                    <div class="overlay">
-                        <a>Iphone 12 Pro Max</a>
-                    </div>
-                </div>
-                <div class="store">
-                    <img class="brand" src="images/leicester-kit.jpg">
-                    <div class="overlay">
-                        <a>Leicester Home Kit</a>
-                    </div>
-                </div>
-                <div class="store">
-                    <img class="brand" src="images/speed-3.0.jpg">
-                    <div class="overlay">
-                        <a>Speed 3.0 Sneakers</a>
-                    </div>
-                </div>
-                <div class="store">
-                    <img class="brand" src="images/LA-jersey.jpg">
-                    <div class="overlay">
-                        <a>LA Lakers Jersey</a>
-                    </div>
-                </div>
-                <div class="store">
-                    <img class="brand" src="images/hublot-watch.jpg">
-                    <div class="overlay">
-                        <a>Big Bang Meca-10</a>
-                    </div>
-                </div>
+                <?php
+                    foreach ($products as $p) {
+                        $id = $p['id'];
+                        $name = $p['name'];
+                        echo '<div class="store">';
+                        echo "<li><a href=\"store.php?id=$id\">$name</a></li>";
+                        echo '</div>';
+                        $count++;
+                        if ($count == 10) {
+                          break;
+                        }
+                    }
+                ?>
             </div>
             <div class="new">
                 <h1>new stores</h1>
