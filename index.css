@@ -452,6 +452,7 @@ footer ul li:not(:first-child) {
 footer ul li a {
     color: white;
     text-decoration: none;
+    font-size: 40px;
 }
 
 footer ul li .fab {
