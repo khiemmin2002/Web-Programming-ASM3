@@ -38,6 +38,7 @@
                         <div class="dropdown-content" id="special">
                             <a href="Brands.php">Brands</a>
                             <a href="Categories.php">Categories</a>
+                            <a href="CreatedTime.php">Created Time</a>
                         </div><!--Shops By (Dropdown)-->
                     </div>
                     <a href="Fees.php">Fees</a> 
@@ -74,6 +75,7 @@
                                 <div class="items">
                                     <a href="Brands.php">Brands</a>
                                     <a href="Categories.php">Categories</a>
+                                    <a href="CreatedTime.php">Created Time</a>
                                 </div>
                             </div>
                             <a href="Fees.php">Fees</a>

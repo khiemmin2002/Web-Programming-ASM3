@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en-VN">
     <head>
@@ -38,6 +42,7 @@
                         <div class="dropdown-content" id="special">
                             <a href="Brands.php">Brands</a>
                             <a href="Categories.php">Categories</a>
+                            <a href="CreatedTime.php">Created Time</a>
                         </div><!--Shops By (Dropdown)-->
                     </div>
                     <a href="Fees.php">Fees</a> 
@@ -86,6 +91,7 @@
                                 <div class="items">
                                     <a href="Brands.php">Brands</a>
                                     <a href="Categories.php">Categories</a>
+                                    <a href="CreatedTime.php">Created Time</a>
                                 </div>
                             </div>
                             <a href="Fees.php">Fees</a>
@@ -117,25 +123,45 @@
                 </div>
                 <div class="sub-container">
                     <div class="teams" data-modal ="modal1">
-                        <img src="images/khanh.jpg">
+                        <?php 
+                            if (isset($_SESSION['khanh_id'])) {
+                                $khanh_id = $_SESSION['khanh_id'];
+                            }
+                        ?>
+                        <img src="./admin/images/khanh.jpg?id=<?=$khanh_id?>">
                         <div class="name">Giang Nhật Khánh</div>
                         <div class="id">s3878182</div>
                         <div class="about">s3878182@rmit.edu.vn</div>
                     </div>
                     <div class="teams" data-modal ="modal2">
-                        <img src="images/khiem.jpg">
+                        <?php 
+                            if (isset($_SESSION['khiem_id'])) {
+                                $khiem_id = $_SESSION['khiem_id'];
+                            }
+                        ?>
+                        <img src="./admin/images/khiem.jpg?id=<?=$khiem_id?>">
                         <div class="name">Mìn Chi Gia Khiêm</div>
                         <div class="id">s3878280</div>
                         <div class="about">s3878280@rmit.edu.vn</div>
                     </div>
                     <div class="teams" data-modal ="modal3">
-                        <img src="images/nam.jpg">
+                        <?php 
+                            if (isset($_SESSION['nam_id'])) {
+                                $nam_id = $_SESSION['nam_id'];
+                            }
+                        ?>
+                        <img src="./admin/images/nam.jpg?id=<?=$nam_id?>">
                         <div class="name">Nguyễn Phan Nam</div>
                         <div class="id">s3873792</div>
                         <div class="about">s3873792@rmit.edu.vn</div>
                     </div>
                     <div class="teams" data-modal ="modal4">
-                        <img src="images/phuc.jpg">
+                        <?php 
+                            if (isset($_SESSION['phuc_id'])) {
+                                $phuc_id = $_SESSION['phuc_id'];
+                            }
+                        ?>
+                        <img src="./admin/images/phuc.jpg?id=<?=$phuc_id?>">
                         <div class="name">Trần Hoàng Phúc</div>
                         <div class="id">s3911244</div>
                         <div class="about">s3911244@rmit.edu.vn</div>
@@ -186,7 +212,7 @@
                 <div class="info">
                     <div class="basic-info">
                         <div class="image">
-                            <img src="images/khanh.jpg">
+                            <img src="./admin/images/khanh.jpg?id=<?=$khanh_id?>">
                         </div>
                         <h3>Giang Nhật Khánh</h3>
                         <p><strong>Student Number: </strong>S3878182</p>
@@ -212,7 +238,7 @@
                 <div class="info">
                     <div class="basic-info">
                         <div class="image">
-                            <img src="images/khiem.jpg">
+                            <img src="./admin/images/khiem.jpg?id=<?=$khiem_id?>">
                         </div>
                         <h3>Mìn Chi Gia Khiêm</h3>
                         <p><strong>Student Number: </strong>S3878280</p>
@@ -238,7 +264,7 @@
                 <div class="info">
                     <div class="basic-info">
                         <div class="image">
-                            <img src="images/nam.jpg">
+                            <img src="./admin/images/nam.jpg?id=<?=$nam_id?>">
                         </div>
                         <h3>Nguyễn Phan Nam</h3>
                         <p><strong>Student Number: </strong>S3873792</p>
@@ -264,7 +290,7 @@
                 <div class="info">
                     <div class="basic-info">
                         <div class="image">
-                            <img src="images/phuc.jpg">
+                            <img src="./admin/images/phuc.jpg?id=<?=$phuc_id?>">
                         </div>
                         <h3>Trần Hoàng Phúc</h3>
                         <p><strong>Student Number: </strong>S3911244</p>
