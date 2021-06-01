@@ -384,20 +384,21 @@ $count2 = 0;
                         <p class="address" id="detail-2"><i class="fas fa-phone-alt"></i>(028)-2288-9999</p>
                     </div>
                     <ul class="icon-container">
-                        <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"
-                                    aria-hidden="true"></i></a></li>
-                        <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"
-                                    aria-hidden="true"></i></a></li>
-                        <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"
-                                    aria-hidden="true"></i></a></li>
-                        <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"
-                                    aria-hidden="true"></i></a></li>
+                        <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
                 <!--GItem 3-->
             </div>
             <div class="copyright">
-                <p>&copy; 2021 The Infinis Mall. All Rights Reserved.</p>
+            <?php 
+                $terms_file = fopen("data/copyright.txt", "r");
+                while ($line = fgets($terms_file))
+                    echo $line;
+                fclose($terms_file);
+            ?>
             </div>
         </footer>
     </div>
