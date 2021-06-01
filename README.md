@@ -8,6 +8,8 @@ IMPORTANT NOTES FOR LECTURER/GRADER (This is to make sure that you can test out 
 
 + For admin users: To access the admin features, you just need to add a (/admin) appendix after the localhost address (for example: localhost:8000/admin). If you are logged in already, this should take you straight to the dashboard. Otherwise, it will redirect you to the admin-login.php page, where you have to log in using the username and password created with the install.php file.
 
++ Should there be any confusion, please send us an e-mail for clarifications. Thank you!
+
 PHP
 Khiêm: PHP00, PHP01
 Khánh: PHP02, PHP03
