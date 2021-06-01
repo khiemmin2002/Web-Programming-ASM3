@@ -24,6 +24,7 @@ function csv_to_array($filename='', $delimiter=',')
     return $data;
 }
 $csvData = csv_to_array($filePath);
+// print_r($csvData);
 function date_compare($element1, $element2) {
     $datetime1 = strtotime($element1['created_time']);
     $datetime2 = strtotime($element2['created_time']);
@@ -76,7 +77,7 @@ usort($csvData, 'date_compare');
                     <div class="dropdown-content" id="special">
                         <a href="Brands.php">Brands</a>
                         <a href="Categories.php">Categories</a>
-                        <a class="active" href="CreatedTime.php">Created Time</a>
+                        <a class="active" href="Categories.php">Created Time</a>
                     </div>
                     <!--Shops By (Dropdown)-->
                 </div>
@@ -127,8 +128,7 @@ usort($csvData, 'date_compare');
                             <a href="javascript:void(0)" class="active">Browse By</a>
                             <div class="items">
                                 <a href="Brands.php">Brands</a>
-                                <a href="Categories.php">Categories</a>
-                                <a href="CreatedTime.php" class="active">Created Time</a>
+                                <a href="Categories.php" class="active">Categories</a>
                             </div>
                         </div>
                         <a href="Fees.php">Fees</a>
@@ -243,7 +243,26 @@ usort($csvData, 'date_compare');
 <script src="cookies.js"></script>
 <script src="status.js"></script>
 <script src="cart.js"></script>
-<script src="CreatedTime.js"></script>
+<script src="Createdtime.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.min.js"></script>
+<script>
+    var items = $('.list-wrapper .list-item');
+    var numItems = items.length;
+    var perPage = 2;
+
+    items.slice(perPage).hide();
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "<",
+        nextText: ">",
+        onPageClick: function(pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    })
+</script>
+
 </html>
