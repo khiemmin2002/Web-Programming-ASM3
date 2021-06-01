@@ -1,16 +1,3 @@
-<?php
-session_start();
-
-require 'product_functions.php';
-require 'store_functions.php';
-
-$products = read_all_products();
-$stores = read_all_stores();
-
-$count = 0;
-$count2 = 0;
-?>
-
 <!DOCTYPE html>
 <html lang="en-VN">
 
@@ -54,6 +41,7 @@ $count2 = 0;
                     <div class="dropdown-content" id="special">
                         <a href="Brands.php">Brands</a>
                         <a href="Categories.php">Categories</a>
+                        <a href="CreatedTime.php">Created Time</a>
                     </div>
                     <!--Shops By (Dropdown)-->
                 </div>
@@ -105,6 +93,7 @@ $count2 = 0;
                             <div class="items">
                                 <a href="Brands.php">Brands</a>
                                 <a href="Categories.php">Categories</a>
+                                <a href="CreatedTime.php">Created Time</a>
                             </div>
                         </div>
                         <a href="Fees.php">Fees</a>
@@ -133,17 +122,51 @@ $count2 = 0;
             <div class="featured">
                 <h1>featured stores</h1>
             </div> 
+            <?php
+                function all_stores(){
+                $file = 'data/stores.csv';
+                $read_file = fopen($file, 'r');
+                $first = fgetcsv($read_file);
+                $store_name = [];
+                while ($row = fgetcsv($read_file)){
+                    $count = 0;
+                    $store = [];
+                    foreach ($first as $col_name) {
+                        $store[$col_name] = $row[$count];
+                        $count++;
+                    }
+                    $store_name[] = $store;
+                }
+                return $store_name;
+                }
+
+                function get_store() {
+                    $stores = all_stores();
+                    foreach ($stores as $s) {
+                        if ($s['featured'] == 'TRUE') {
+                            return $s;
+                        }
+                    }
+                    return false;
+                }
+            ?>
             <div class="featured-stores">
                 <?php
-                    foreach ($stores as $s) {
-                        $id = $s['id'];
-                        $name = $s['name'];
-                        echo '<div class="store">';
-                        echo "<li><a href=\"store.php?id=$id\">$name</a></li>";
-                        echo '</div>';
-                        $count2++;
-                        if ($count2 == 10) {
-                        break;
+                    $ft_stores = all_stores();
+                    $c = 0;
+                    foreach ($ft_stores as $store) {
+                        if ($store['featured'] == 'TRUE') {
+                            $name = $store['name'];
+                            echo "<div class=\"store\">
+                            <img class='brand' src='images/apple.png'>
+                            <div class='overlay'>
+                            <a href='Apple.php'>$name</a>
+                            </div>
+                            </div>";
+                            $c++;
+                            if ($c == 10) {
+                                break;
+                            }
                         }
                     }
                 ?>
@@ -151,17 +174,52 @@ $count2 = 0;
             <div class="featured">
                 <h1>featured products</h1>
             </div>
+            <?php
+                function all_products() {
+                    $file = 'data/products.csv';
+                    $read_file = fopen($file, 'r');
+                    $first = fgetcsv($read_file);
+                    $product_name = [];
+                    while ($row = fgetcsv($read_file)) {
+                        $count = 0;
+                        $product = [];
+                        foreach ($first as $col_name) {
+                            $product[$col_name] = $row[$count];
+                            $count++;
+                        }
+                        $product_name[] = $product;
+                    }
+                    return $product_name;
+                }   
+
+                function get_product($product_id) {
+                    $products = all_products();
+                    foreach ($products as $p) {
+                        if ($p['id'] == $product_id){
+                            return $p;
+                        }
+                    }
+                    return false;
+                }
+            ?>
             <div class="featured-products">
                 <?php
-                    foreach ($products as $p) {
-                        $id = $p['id'];
-                        $name = $p['name'];
-                        echo '<div class="store">';
-                        echo "<li><a href=\"store.php?id=$id\">$name</a></li>";
-                        echo '</div>';
-                        $count++;
-                        if ($count == 10) {
-                          break;
+                    $ft_products = all_products();
+                    $c = 0;
+                    foreach ($ft_products as $product) {
+                        if ($product['featured_in_mall'] == 'TRUE') {
+                            $name = $product['name'];
+                            $price = $product['price'];
+                            echo "<div class=\"store\">
+                            <img class='brand' src='images/ip-12-pro-max.jpg'>
+                            <div class='overlay'>
+                            <a href='Products.php'>$name</a>
+                            </div>
+                            </div>";
+                            $c++;
+                            if ($c == 10) {
+                                break;
+                            }
                         }
                     }
                 ?>
