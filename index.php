@@ -330,91 +330,91 @@
                     <div class="slide-store2">
                         <img class="brand" src="images/xbox.jpg">
                         <div class="overlay">
-                            <a>Xbox Series X</a>
+                            <a href="Products.php">Xbox Series X</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/rolex-watch.jpg">
                         <div class="overlay">
-                            <a>Lady-Datejust gold</a>
+                            <a href="Products.php">Lady-Datejust gold</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/keepall.jpg">
                         <div class="overlay">
-                            <a>Keepall XS</a>
+                            <a href="Products.php">Keepall XS</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/colosseum.png">
                         <div class="overlay">
-                            <a>Lego Colosseum</a>
+                            <a href="Products.php">Lego Colosseum</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/top-class.jpg">
                         <div class="overlay">
-                            <a>Top Class container</a>
+                            <a href="Products.php">Top Class container</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/predator-freak.jpg">
                         <div class="overlay">
-                            <a>Predator Freak 1</a>
+                            <a href="Products.php">Predator Freak 1</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/defender-II.jpg">
                         <div class="overlay">
-                            <a>Defender II duffle</a>
+                            <a href="Products.php">Defender II duffle</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/cyberpunk.jpg">
                         <div class="overlay">
-                            <a>Cyberpunk 2077</a>
+                            <a href="Products.php">Cyberpunk 2077</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/air-jordan.jpg">
                         <div class="overlay">
-                            <a>Air Jordan 1</a>
+                            <a href="Products.php">Air Jordan 1</a>
                         </div>
                     </div>
                     <div class="slide-store2">
                         <img class="brand" src="images/versa-tack.jpg">
                         <div class="overlay">
-                            <a>Versa Tack size 7</a>
+                            <a href="Products.php">Versa Tack size 7</a>
                         </div>
                     </div>
                     <div class="slide-store2" id="duplicate-6">
                         <img class="brand" src="images/xbox.jpg">
                         <div class="overlay">
-                            <a>Xbox Series X</a>
+                            <a href="Products.php">Xbox Series X</a>
                         </div>
                     </div>
                     <div class="slide-store2" id="duplicate-7">
                         <img class="brand" src="images/rolex-watch.jpg">
                         <div class="overlay">
-                            <a>Lady-Datejust gold</a>
+                            <a href="Products.php">Lady-Datejust gold</a>
                         </div>
                     </div>
                     <div class="slide-store2" id="duplicate-8">
                         <img class="brand" src="images/keepall.jpg">
                         <div class="overlay">
-                            <a>Keepall XS</a>
+                            <a href="Products.php">Keepall XS</a>
                         </div>
                     </div>
                     <div class="slide-store2" id="duplicate-9">
                         <img class="brand" src="images/colosseum.png">
                         <div class="overlay">
-                            <a>Lego Colosseum</a>
+                            <a href="Products.php">Lego Colosseum</a>
                         </div>
                     </div>
                     <div class="slide-store2" id="duplicate-10">
                         <img class="brand" src="images/top-class.jpg">
                         <div class="overlay">
-                            <a>Top Class container</a>
+                            <a href="Products.php">Top Class container</a>
                         </div>
                     </div>
                     <div class="placeholder">Text</div>
