@@ -550,7 +550,12 @@ if (isset($_POST['register'])) {
         <!--GItem 3-->
       </div>
       <div class="copyright">
-        <p>&copy; 2021 The Infinis Mall. All Rights Reserved.</p>
+      <?php 
+            $terms_file = fopen("data/copyright.txt", "r");
+            while ($line = fgets($terms_file))
+                echo $line;
+            fclose($terms_file);
+      ?>
       </div>
     </footer>
   </div>
