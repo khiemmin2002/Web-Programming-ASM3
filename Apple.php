@@ -6,7 +6,6 @@
         $idStore = $_GET['id'];
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en-VN">
     <head>
@@ -40,7 +39,7 @@
                     </div><!--Search-->
                 </div><!--Top Header-->
                 <nav class="main-menu">
-                    <a href="../">
+                    <a href="index.php">
                         <i class="fas fa-home"></i>
                     </a>
                     <div class="dropdown">
@@ -48,7 +47,6 @@
                         <div class="dropdown-content" id="special">
                             <a href="Brands.php">Brands</a>
                             <a href="Categories.php">Categories</a>
-                            <a href="CreatedTime.php">Created Time</a>
                         </div><!--Shops By (Dropdown)-->
                     </div>
                     <a href="Fees.php">Fees</a> 
@@ -91,13 +89,12 @@
                         </label>
                         <div class="sub-menu">
                             <a class="empty">Empty</a>
-                            <a href="../">Home</a>
+                            <a href="index.php">Home</a>
                             <div class="drop">
                                 <a href="javascript:void(0)">Browse By</a>
                                 <div class="items">
                                     <a href="Brands.php">Brands</a>
                                     <a href="Categories.php">Categories</a>
-                                    <a href="CreatedTime.php">Created Time</a>
                                 </div>
                             </div>
                             <a href="Fees.php">Fees</a>
@@ -126,7 +123,7 @@
                 </div>
                 <div class="description">
                     <div class="title">
-                        <h1>APPLE</h1>
+                        <h1><?php echo $storename?></h1>
                         <p class="type">Electronics</p>
                         <p class="des">Apple Infinis Mall is the first Apple Store in Vietnam, this entire store is not only for selling typical products, but it is also designated to promoting Vietnamese culture and incoproorating the uniqueness of the Vietnamese people into the particular design of the store.</p>
                         <p class="des" id="secondline">Once inside, visitors can get hands on and explore curated Apple products and accessories. Our Specialists will answer your questions and get you set up before you leave or see a Genius and get technical support.</p>
@@ -146,7 +143,7 @@
                     </div><!--Store Info-->
                 </div><!--Description-->
                 <div class="view">
-                    <a href="Products.php"><button class="button"><strong>VIEW PRODUCTS</strong></button></a>
+                    <a href="Products.php?idstore=<?php echo $idStore?>"><button class="button"><strong>VIEW PRODUCTS</strong></button></a>
                 </div>
             </div>
             <footer>
@@ -176,12 +173,7 @@
                     </div><!--GItem 3-->
                 </div>
                 <div class="copyright">
-                <?php 
-                    $terms_file = fopen("data/copyright.txt", "r");
-                    while ($line = fgets($terms_file))
-                        echo $line;
-                    fclose($terms_file);
-                ?>
+                    <p>&copy; 2021 The Infinis Mall. All Rights Reserved.</p>
                 </div>
             </footer>
         </div><!--Container-->
