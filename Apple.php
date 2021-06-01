@@ -1,3 +1,12 @@
+<?php
+    if(isset($_GET['storename'])){
+        $storename = $_GET['storename'];
+    }
+    if(isset($_GET['id'])){
+        $idStore = $_GET['id'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en-VN">
     <head>

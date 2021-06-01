@@ -1,3 +1,40 @@
+<?php
+$fp = file("data/products.csv");
+$countCSV =  count($fp);
+$fileProducts = fopen("data/products.csv", "r");
+if (isset($_GET['idstore'])) {
+    $idStore = $_GET['idstore'];
+}
+$filePath = "data/products.csv";
+function csv_to_array($filename = '', $delimiter = ',')
+{
+    if (!file_exists($filename) || !is_readable($filename))
+        return FALSE;
+
+    $header = NULL;
+    $data = array();
+    if (($handle = fopen($filename, 'r')) !== FALSE) {
+        while (($row = fgetcsv($handle, 1000, $delimiter)) !== FALSE) {
+            if (!$header)
+                $header = $row;
+            else
+                $data[] = array_combine($header, $row);
+        }
+        fclose($handle);
+    }
+    return $data;
+}
+$csvData = csv_to_array($filePath);
+// print_r($csvData);
+function date_compare($element1, $element2)
+{
+    $datetime1 = strtotime($element1['created_time']);
+    $datetime2 = strtotime($element2['created_time']);
+    return $datetime2 - $datetime1;
+}
+usort($csvData, 'date_compare');
+?>
+
 <!DOCTYPE html>
 <html lang="en-VN">
     <head>
@@ -112,49 +149,46 @@
                 </nav>
             </header>
             <div class="main">
-                <div class="head-categories">
-                    <div class="cate-title">
-                        <h2><strong>Apple's Products</strong></h2>
-                    </div>
+                <div class="featured">
+                    <h1>featured products</h1>
                 </div>
-                <div class="categories">
-                    <div class="store">
-                        <div class="store-img">
-                            <a href="Details.php"><img src="images/iPhone 12 Pro Max.jpg"></a>
-                        </div>
-                        <div class="store-description">
-                            <p class="type-of-store">iPhone</p>
-                            <a href="Details.php"><p class="store-name">iPhone 12 Pro Max</p></a>
-                        </div>
-                    </div>
-                    <div class="store">
-                        <div class="store-img">
-                            <a href="iPadPro.php"><img src="images/iPad Pro 2020.jpg"></a>
-                        </div>
-                        <div class="store-description">
-                            <p class="type-of-store">iPad</p>
-                            <a href="iPadPro.php"><p class="store-name">iPad Pro 2020</p></a>
-                        </div>
-                    </div>
-                    <div class="store">
-                        <div class="store-img">
-                            <a href="Details.php"><img src="images/Apple-AirPods-Pro.png"></a>
-                        </div>
-                        <div class="store-description">
-                            <p class="type-of-store">Accessories</p>
-                            <a href="Details.php"><p class="store-name">AirPods Pro</p></a>
-                        </div>
-                    </div>
-                    <div class="store">
-                        <div class="store-img">
-                            <a href="Details.php"><img src="images/macbook-air.jpeg"></a>
-                        </div>
-                        <div class="store-description">
-                            <p class="type-of-store">Mac</p>
-                            <a href="Details.php"><p class="store-name">Macbook Air M1</p></a>
-                        </div>
-                    </div>
+                <div class="featured-products">
+                    <?php if (($handle = fopen("data/products.csv", "r")) !== FALSE) {
+                        while ((list($id, $name, $price, $createdtime, $store_id) = fgetcsv($handle, 1024, ',')) !== FALSE) {
+                            if ($store_id == $idStore && $id > 0) {
+                    ?>
+                                <div class="store">
+                                    <img class="brand" src="images/ip-12-pro-max.jpg">
+                                    <div class="overlay">
+                                        <a><?php echo $name; ?></a>
+                                    </div>
+                                </div>
+                    <?php
+                            }
+                        }
+                        fclose($handle);
+                    }
+                    ?>
                 </div>
+                <div class="new">
+                    <h1>new products</h1>
+                </div>
+                <div class="slide-container">
+                    <div class="new-products">
+                        <?php for ($i = 0; $i < 999; $i++) {
+                            if ($csvData[$i]['store_id'] == $idStore) {
+                        ?>
+                                <div class="slide-store2">
+                                    <img class="brand" src="images/xbox.jpg">
+                                    <div class="overlay">
+                                        <a><?php echo $csvData[$i]['name'] ?></a>
+                                        <a><?php echo $csvData[$i]['created_time'] ?></a>
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        }
+                        ?>
             </div>
             <footer>
                 <div class="grid-contain">
