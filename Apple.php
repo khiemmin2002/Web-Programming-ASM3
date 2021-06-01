@@ -47,6 +47,7 @@
                         <div class="dropdown-content" id="special">
                             <a href="Brands.php">Brands</a>
                             <a href="Categories.php">Categories</a>
+                            <a href="CreatedTime.php">Created Time</a>
                         </div><!--Shops By (Dropdown)-->
                     </div>
                     <a href="Fees.php">Fees</a> 
@@ -95,6 +96,7 @@
                                 <div class="items">
                                     <a href="Brands.php">Brands</a>
                                     <a href="Categories.php">Categories</a>
+                                    <a href="CreatedTime.php">Created Time</a>
                                 </div>
                             </div>
                             <a href="Fees.php">Fees</a>
@@ -173,7 +175,12 @@
                     </div><!--GItem 3-->
                 </div>
                 <div class="copyright">
-                    <p>&copy; 2021 The Infinis Mall. All Rights Reserved.</p>
+                <?php 
+                    $terms_file = fopen("data/copyright.txt", "r");
+                    while ($line = fgets($terms_file))
+                        echo $line;
+                    fclose($terms_file);
+                ?>
                 </div>
             </footer>
         </div><!--Container-->
