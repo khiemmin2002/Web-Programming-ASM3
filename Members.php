@@ -117,7 +117,7 @@
                 </div>
                 <div class="sub-container">
                     <div class="teams" data-modal ="modal1">
-                        <img src="images/Khánh.jpg">
+                        <img src="images/khanh.jpg">
                         <div class="name">Giang Nhật Khánh</div>
                         <div class="id">s3878182</div>
                         <div class="about">s3878182@rmit.edu.vn</div>
@@ -186,7 +186,7 @@
                 <div class="info">
                     <div class="basic-info">
                         <div class="image">
-                            <img src="images/Khánh.jpg">
+                            <img src="images/khanh.jpg">
                         </div>
                         <h3>Giang Nhật Khánh</h3>
                         <p><strong>Student Number: </strong>S3878182</p>
