@@ -22,8 +22,8 @@
                 <nav class="vert-nav">
                     <ul>
                         <li><a href="../admin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                        <li><a class="active" href="javascript:void(0)"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
-                        <li><a href="pp.php"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                        <li><a href="tos.php"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
+                        <li><a class="active" href="javascript:void(0)"><i class="fas fa-lock"></i> Privacy Policy</a></li>
                         <li><a href="copyright.php"><i class="fas fa-copyright"></i> Copyright</a></li>
                         <li><a href="about-us.php"><i class="fas fa-users"></i> Our Members</a></li>
                         <li><a href="admin-logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -32,20 +32,20 @@
             </header>
             <div class="main">
                 <div class="heading">
-                    <h1>YOU CAN EDIT THE TERMS & CONDITIONS OF THE INFINIS MALL HERE!</h1>
+                    <h1>YOU CAN EDIT THE PRIVACY POLICY OF THE INFINIS MALL HERE!</h1>
                 </div>
                 <hr style="background-color: black; height: 10px; margin: 0;">
                 <div class="viewbox">
                     <?php 
                         function read_text() {
-                            $file = "../data/tos.txt";
+                            $file = "../data/pp.txt";
                             echo file_get_contents($file);
                         }
                     ?>
-                    <form action="terms-edit.php" method="POST">
+                    <form action="privacy-edit.php" method="POST">
                         <h2>Our Terms & Conditions</h2>
                         <textarea required name="view"><?php 
-                            $file = "../data/tos.txt";
+                            $file = "../data/pp.txt";
                             echo file_get_contents($file);
                             ?>
                         </textarea><br>

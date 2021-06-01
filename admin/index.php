@@ -25,7 +25,7 @@
         <meta property="og:url" content="#">
         <meta property="og:image" content="#">
         <meta property="og:description" content="#">
-        <link rel="stylesheet" type="text/css" href="admin/index.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="admin/shared.css" media="screen">
         <script src="https://kit.fontawesome.com/5143a5dc4e.js" crossorigin="anonymous"></script>
         <link href="libs/toastr/build/toastr.min.css" rel="stylesheet">
     </head>
@@ -76,6 +76,9 @@
                             <a href="admin/about-us.php">Group Members</a>
                         </div>
                     </div>
+                </div>
+                <div class="link">
+                    <a href="../">REDIRECT TO THE MALL HOME PAGE!</a>
                 </div>
             </div>
         </div>
