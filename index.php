@@ -4,7 +4,6 @@ $countCSV =  count($fp);
 $fileProducts = fopen("data/products.csv", "r");
 $fileStores = fopen("data/stores.csv", "r");
 ?>
-
 <!DOCTYPE html>
 <html lang="en-VN">
 
@@ -40,7 +39,7 @@ $fileStores = fopen("data/stores.csv", "r");
             </div>
             <!--Top Header-->
             <nav class="main-menu">
-                <a href="../" class="active">
+                <a href="index.php" class="active">
                     <i class="fas fa-home"></i>
                 </a>
                 <div class="dropdown">
@@ -48,7 +47,7 @@ $fileStores = fopen("data/stores.csv", "r");
                     <div class="dropdown-content" id="special">
                         <a href="Brands.php">Brands</a>
                         <a href="Categories.php">Categories</a>
-                        <a href="CreatedTime.php">Created Time</a>
+                        <a href="CreatedTime.php">Created time</a>
                     </div>
                     <!--Shops By (Dropdown)-->
                 </div>
@@ -83,10 +82,10 @@ $fileStores = fopen("data/stores.csv", "r");
             <nav class="alt-menu">
                 <div class="side-nav">
                     <div style="display: block; float: left; margin-left: 15px; margin-top: 25px;">
-                            <a href="Checkout.php" style="text-decoration: none;">
-                                <i class="fas fa-shopping-cart" style="color: white;"></i>
-                                <span id="cart-quantity" style="color: white;">0</span>
-                            </a>
+                        <a href="Checkout.php" style="text-decoration: none;">
+                            <i class="fas fa-shopping-cart" style="color: white;"></i>
+                            <span id="cart-quantity" style="color: white;">0</span>
+                        </a>
                     </div>
                     <input type="checkbox" id="check">
                     <label for="check" class="menu-icon">
@@ -94,13 +93,12 @@ $fileStores = fopen("data/stores.csv", "r");
                     </label>
                     <div class="sub-menu">
                         <a class="empty">Empty</a>
-                        <a class="active" href="../">Home</a>
+                        <a class="active" href="index.php">Home</a>
                         <div class="drop">
                             <a href="javascript:void(0)">Browse By</a>
                             <div class="items">
                                 <a href="Brands.php">Brands</a>
                                 <a href="Categories.php">Categories</a>
-                                <a href="CreatedTime.php">Created Time</a>
                             </div>
                         </div>
                         <a href="Fees.php">Fees</a>
@@ -128,107 +126,38 @@ $fileStores = fopen("data/stores.csv", "r");
         <div class="main">
             <div class="featured">
                 <h1>featured stores</h1>
-            </div> 
-            <?php
-                function all_stores(){
-                $file = 'data/stores.csv';
-                $read_file = fopen($file, 'r');
-                $first = fgetcsv($read_file);
-                $store_name = [];
-                while ($row = fgetcsv($read_file)){
-                    $count = 0;
-                    $store = [];
-                    foreach ($first as $col_name) {
-                        $store[$col_name] = $row[$count];
-                        $count++;
-                    }
-                    $store_name[] = $store;
-                }
-                return $store_name;
-                }
-
-                function get_store() {
-                    $stores = all_stores();
-                    foreach ($stores as $s) {
-                        if ($s['featured'] == 'TRUE') {
-                            return $s;
-                        }
-                    }
-                    return false;
-                }
-            ?>
+            </div>
             <div class="featured-stores">
-                <?php
-                    $ft_stores = all_stores();
-                    $c = 0;
-                    foreach ($ft_stores as $store) {
-                        if ($store['featured'] == 'TRUE') {
-                            $name = $store['name'];
-                            echo "<div class=\"store\">
-                            <img class='brand' src='images/apple.png'>
-                            <div class='overlay'>
-                            <a href='Apple.php'>$name</a>
+                <?php while (list($id, $name) = fgetcsv($fileStores, 1024, ',')) {
+                    if ($id < 6 && $id > 0) {
+                ?>
+                        <div class="store">
+                            <img class="brand" src="images/apple.png">
+                            <div class="overlay">
+                                <a href="Apple.php?storename=<?php echo $name ?>&id=<?php echo $id ?>"><?php echo $name ?></a>
                             </div>
-                            </div>";
-                            $c++;
-                            if ($c == 10) {
-                                break;
-                            }
-                        }
+                        </div>
+                <?php
                     }
+                }
                 ?>
             </div>
             <div class="featured">
                 <h1>featured products</h1>
             </div>
-            <?php
-                function all_products() {
-                    $file = 'data/products.csv';
-                    $read_file = fopen($file, 'r');
-                    $first = fgetcsv($read_file);
-                    $product_name = [];
-                    while ($row = fgetcsv($read_file)) {
-                        $count = 0;
-                        $product = [];
-                        foreach ($first as $col_name) {
-                            $product[$col_name] = $row[$count];
-                            $count++;
-                        }
-                        $product_name[] = $product;
-                    }
-                    return $product_name;
-                }   
-
-                function get_product($product_id) {
-                    $products = all_products();
-                    foreach ($products as $p) {
-                        if ($p['id'] == $product_id){
-                            return $p;
-                        }
-                    }
-                    return false;
-                }
-            ?>
             <div class="featured-products">
-                <?php
-                    $ft_products = all_products();
-                    $c = 0;
-                    foreach ($ft_products as $product) {
-                        if ($product['featured_in_mall'] == 'TRUE') {
-                            $name = $product['name'];
-                            $price = $product['price'];
-                            echo "<div class=\"store\">
-                            <img class='brand' src='images/ip-12-pro-max.jpg'>
-                            <div class='overlay'>
-                            <a href='Products.php'>$name</a>
+                <?php while (list($id, $name) = fgetcsv($fileProducts, 1024, ',')) {
+                    if ($id < 6 && $id > 0) {
+                ?>
+                        <div class="store">
+                            <img class="brand" src="images/ip-12-pro-max.jpg">
+                            <div class="overlay">
+                                <a><?php echo $name; ?></a>
                             </div>
-                            </div>";
-                            $c++;
-                            if ($c == 10) {
-                                break;
-                            }
-                        }
+                        </div>
+                <?php
                     }
+                }
                 ?>
             </div>
             <div class="new">
@@ -236,96 +165,22 @@ $fileStores = fopen("data/stores.csv", "r");
             </div>
             <div class="slide-container">
                 <div class="new-stores" id="slider1">
-                    <div class="slide-store1">
-                        <img class="brand" src="images/microsoft.jpg">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/rolex.png">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/LV.png">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/lego.jpeg">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/locknlock.png">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/adidas.png">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/shakeshack.jpg">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/starbucks.jpg">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/nike.jpg">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1">
-                        <img class="brand" src="images/din-tai-fung.png">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1" id="duplicate-1">
-                        <img class="brand" src="images/microsoft.jpg">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1" id="duplicate-2">
-                        <img class="brand" src="images/rolex.png">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1" id="duplicate-3">
-                        <img class="brand" src="images/LV.png">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1" id="duplicate-4">
-                        <img class="brand" src="images/lego.jpeg">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
-                    <div class="slide-store1" id="duplicate-5">
-                        <img class="brand" src="images/locknlock.png">
-                        <div class="overlay">
-                            <a href="Apple.php">Visit now!</a>
-                        </div>
-                    </div>
+                    <?php if (($handle = fopen("data/stores.csv", "r")) !== FALSE) {
+                        while ((list($id, $name) = fgetcsv($handle, 1024, ',')) !== FALSE) {
+                            if ($id < 15 && $id > 0) {
+                    ?>
+                                <div class="slide-store1">
+                                    <img class="brand" src="images/microsoft.jpg">
+                                    <div class="overlay">
+                                        <a href="Apple.php"><?php echo $name ?></a>
+                                    </div>
+                                </div>
+                    <?php
+                            }
+                        }
+                        fclose($handle);
+                    }
+                    ?>
                     <div class="placeholder">Text</div>
                 </div>
             </div>
@@ -333,97 +188,23 @@ $fileStores = fopen("data/stores.csv", "r");
                 <h1>new products</h1>
             </div>
             <div class="slide-container">
-                <div class="new-products" id="slider2">
-                    <div class="slide-store2">
-                        <img class="brand" src="images/xbox.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Xbox Series X</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/rolex-watch.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Lady-Datejust gold</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/keepall.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Keepall XS</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/colosseum.png">
-                        <div class="overlay">
-                            <a href="Products.php">Lego Colosseum</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/top-class.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Top Class container</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/predator-freak.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Predator Freak 1</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/defender-II.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Defender II duffle</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/cyberpunk.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Cyberpunk 2077</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/air-jordan.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Air Jordan 1</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2">
-                        <img class="brand" src="images/versa-tack.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Versa Tack size 7</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2" id="duplicate-6">
-                        <img class="brand" src="images/xbox.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Xbox Series X</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2" id="duplicate-7">
-                        <img class="brand" src="images/rolex-watch.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Lady-Datejust gold</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2" id="duplicate-8">
-                        <img class="brand" src="images/keepall.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Keepall XS</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2" id="duplicate-9">
-                        <img class="brand" src="images/colosseum.png">
-                        <div class="overlay">
-                            <a href="Products.php">Lego Colosseum</a>
-                        </div>
-                    </div>
-                    <div class="slide-store2" id="duplicate-10">
-                        <img class="brand" src="images/top-class.jpg">
-                        <div class="overlay">
-                            <a href="Products.php">Top Class container</a>
-                        </div>
-                    </div>
+                <div class="new-products">
+                    <?php if (($handle = fopen("data/products.csv", "r")) !== FALSE) {
+                        while ((list($id, $name) = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                            if ($id > ($countCSV - 6)) {
+                    ?>
+                                <div class="slide-store2">
+                                    <img class="brand" src="images/xbox.jpg">
+                                    <div class="overlay">
+                                        <a><?php echo $name ?></a>
+                                    </div>
+                                </div>
+                    <?php
+                            }
+                        }
+                        fclose($handle);
+                    }
+                    ?>
                     <div class="placeholder">Text</div>
                 </div>
             </div>
@@ -458,12 +239,7 @@ $fileStores = fopen("data/stores.csv", "r");
                 <!--GItem 3-->
             </div>
             <div class="copyright">
-            <?php 
-                $terms_file = fopen("data/copyright.txt", "r");
-                while ($line = fgets($terms_file))
-                    echo $line;
-                fclose($terms_file);
-            ?>
+                <p>&copy; 2021 The Infinis Mall. All Rights Reserved.</p>
             </div>
         </footer>
     </div>
@@ -472,8 +248,7 @@ $fileStores = fopen("data/stores.csv", "r");
         <div id="cookies-box" class="cookies-pop-up">
             <div class="cookies-content">
                 <h2>We are using cookies for our website</h2>
-                <p>Cookies are used to improve your browsing experience. By using the site you agree to the <a
-                        href="Terms.php">Terms and Conditions</a>.</p>
+                <p>Cookies are used to improve your browsing experience. By using the site you agree to the <a href="Terms.php">Terms and Conditions</a>.</p>
                 <div class="buttons">
                     <button class="item" id="accept">I Accept</button>
                     <button class="item" id="decline">No, thanks!</button>
@@ -485,11 +260,11 @@ $fileStores = fopen("data/stores.csv", "r");
     </div>
     <!--Cookies-wrap-->
 </body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="libs/toastr/build/toastr.min.js"></script>
-    <script src="index.js"></script>
-    <script src="cookies.js"></script>
-    <script src="status.js"></script>
-    <script src="cart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="libs/toastr/build/toastr.min.js"></script>
+<script src="index.js"></script>
+<script src="cookies.js"></script>
+<script src="status.js"></script>
+<script src="cart.js"></script>
 
 </html>
